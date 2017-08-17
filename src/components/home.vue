@@ -18,14 +18,27 @@
 	            				<figcaption>{{item.title}}</figcaption>
 	            			</figure>
 	            		</router-link>
-		   </div>
+		  </div>
 		</div>
 		<div class="shoplist">
 		   <div class="head">
 		      <i class="fa fa-building" aria-hidden="true"></i>
 		      <span style="color: #999;font-size: 0.55rem">附近商家</span>
 		   </div>
+       <div class="storelist">
+         <ul class="showEvery">
+         <li class="shop_li">
+           <div><img src="./../assets/tianpin.jpeg"/></div>
+           <div class="storeContent">
+             <p>至尊披萨</p>
+             <el-rate v-model="value5" disabled show-text text-color="#ff9900" text-template="{value}"> </el-rate>      
+           </div>
+           </li>
+         </ul>
+
+       </div>
 		</div>
+
 </div>
   </mt-tab-container-item>
   <mt-tab-container-item id="搜索">
@@ -79,6 +92,7 @@ export default {
        selected:"外卖",
        value:"",
        defaultResult:[],
+       value5:3.7,
        "imgList":[
          {
         "imgurl":tianpin,
@@ -136,6 +150,10 @@ export default {
 </script>
 
 <style>
+ul{
+  margin: 0;
+  padding: 0;
+}
 html{
 	font-size: 23.4375px
 }
@@ -219,14 +237,33 @@ figure{
 	padding:0;
 }
 .shoplist{
-	float: left;
 	margin-top:0.4rem;
 	border-top: 0.025rem solid #e4e4e4;
-    background-color: #fff
+  background-color: #fff;
+  clear: both;
+}
+.head{
+  float: left;
+}
+.storelist{
+  clear: both;
 }
 .fa-building{
 	font-size: 0.6rem;
 	color:#999;
 	margin-left: 0.6rem; 
 }
+.showEvery{
+  list-style: none;
+  clear: both;
+}
+.showEvery img{
+  height:2.7rem; 
+  width:2.7rem;
+  float: left;
+}
+.shop_li{
+    border-bottom: 0.025rem solid #f1f1f1;
+    padding: 0.7rem 0.4rem;
+  }
 </style>

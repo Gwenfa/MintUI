@@ -20,6 +20,7 @@
    <mt-button type="default">default</mt-button>
    <mt-button type="primary">primary</mt-button>
    <mt-button type="danger">danger</mt-button>
+    <el-rate v-model="value5" disabled show-text text-color="#ff9900" text-template="{value}"> </el-rate>    
   </div>
 </template>
 
