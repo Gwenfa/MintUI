@@ -28,10 +28,15 @@
        <div class="storelist">
          <ul class="showEvery">
          <li class="shop_li">
-           <div><img src="./../assets/tianpin.jpeg"/></div>
+           <div class="img"><img src="./../assets/mm.jpeg"/></div>
            <div class="storeContent">
-             <p>至尊披萨</p>
-             <el-rate v-model="value5" disabled show-text text-color="#ff9900" text-template="{value}"> </el-rate>      
+             <h4 class="htitle">火村麦当劳</h4>
+             <ul class="shop_detail_ul">
+                 <li data-v-2df9c5b6="" class="supports">保</li>
+                 <li data-v-2df9c5b6="" class="supports">准</li>
+                 <li data-v-2df9c5b6="" class="supports">票</li>
+             </ul>
+            <!--  <el-rate v-model="value5" disabled show-text text-color="#ff9900" text-template="{value}"> </el-rate>   -->    
            </div>
            </li>
          </ul>
@@ -153,6 +158,7 @@ export default {
 ul{
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 html{
 	font-size: 23.4375px
@@ -260,10 +266,31 @@ figure{
 .showEvery img{
   height:2.7rem; 
   width:2.7rem;
-  float: left;
 }
 .shop_li{
     border-bottom: 0.025rem solid #f1f1f1;
     padding: 0.7rem 0.4rem;
   }
+  .img{
+    float: left;
+  }
+  .htitle{
+    width: 8.5rem;
+    color: #333;
+    padding-top: .01rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+  .shop_detail_ul{
+    float: right;
+  }
+  .supports{
+    font-size: 0.5rem;
+    color: #999;
+    border: 0.025rem solid #f1f1f1;
+    padding: 0 0.04rem;
+    border-radius: 0.08rem;
+    margin-left: 0.05rem;
+    float: left;
+}
 </style>
