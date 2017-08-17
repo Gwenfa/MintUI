@@ -5,6 +5,8 @@ import VueResource from 'vue-resource'
 import Hello from '@/components/Hello'
 import Test from './../components/test'
 import Home from './../components/home'
+import Search from './../components/search'
+
 Vue.use(Router)
 Vue.use(VueResource)
 
@@ -19,6 +21,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component:Home
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component:Search
     }
   ]
 })

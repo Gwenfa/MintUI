@@ -16,5 +16,11 @@
         "Pear",  
         "Peanut",  
         "Other"  
+      ],
+      "imgList":[
+      {
+        "imgurl":"tianpin",
+        "title":"甜品饮品"
+      }
       ]
 }
