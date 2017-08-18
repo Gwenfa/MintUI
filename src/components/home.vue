@@ -10,6 +10,7 @@
              <i class="fa fa-user-o" aria-hidden="true"></i>
              </div>
 		</header>
+		<div style="height:50px;"></div>
 		<div class="foodType">
 			<div class="typelist">
 	            		<router-link to="" v-for="item in imgList" class="link_to_food">
@@ -20,34 +21,55 @@
 	            		</router-link>
 		  </div>
 		</div>
-		<div class="shoplist">
+	 	<div class="shoplist">
 		   <div class="head">
 		      <i class="fa fa-building" aria-hidden="true"></i>
 		      <span style="color: #999;font-size: 0.55rem">附近商家</span>
 		   </div>
        <div class="storelist">
          <ul class="showEvery">
-         <li class="shop_li">
-           <div class="img"><img src="./../assets/mm.jpeg"/></div>
+         <li class="shop_li" v-for="store in storeList">
+           <div class="img"><img :src="store.foodimg"/></div>
            <div class="storeContent">
-             <h4 class="htitle">火村麦当劳</h4>
+             <h4 class="htitle">{{store.storename}}</h4>
              <ul class="shop_detail_ul">
                  <li data-v-2df9c5b6="" class="supports">保</li>
                  <li data-v-2df9c5b6="" class="supports">准</li>
                  <li data-v-2df9c5b6="" class="supports">票</li>
              </ul>
-            <!--  <el-rate v-model="value5" disabled show-text text-color="#ff9900" text-template="{value}"> </el-rate>   -->    
+            <div class="middle">
+               <el-rate v-model="value5" disabled show-text text-color="#ff9900" text-template="{value}"> </el-rate>  
+               <section class="sale">月售{{store.saleAmount}}单</section>
+               <section class="delivery">
+	               <span class="delivery_left">蜂鸟专送</span> 
+	               <span class="delivery_right">准时达</span>
+               </section>
+            </div>
+	        <div class="fee_distance">
+	            <p class="fee">¥{{store.deliveryMoney}}起送 <span data-v-2df9c5b6="" class="segmentation">/</span>配送费约¥5</p> 
+	            <p class="distance_time">
+		            <span >{{store.distance}}公里</span> 
+		            <span class="segmentation">/</span> 
+		            <span data-v-2df9c5b6="" class="order_time">{{store.time}}分钟</span>
+	            </p>
+			</div> 
+
            </div>
-           </li>
-         </ul>
+       </li>
+    </ul>
 
        </div>
-		</div>
+		</div> 
 
 </div>
   </mt-tab-container-item>
   <mt-tab-container-item id="搜索">
-     <i class="fa fa-microphone" aria-hidden="true"></i>
+     <div class="searchContainer">
+		<header>
+			<span @click="goback"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+			<mt-search autofocus  v-model="value" :result="filterResult" ></mt-search> 
+		</header>
+   </div>
   </mt-tab-container-item>
   <mt-tab-container-item id="订单">
     <mt-cell v-for="n in 7" title="tab-container 3"></mt-cell>
@@ -59,19 +81,19 @@
 
 <mt-tabbar v-model="selected" fixed>
   <mt-tab-item id="外卖">
-    <img slot="icon" src="">
+    <img slot="icon" src="./../assets/elm.jpg">
     外卖
   </mt-tab-item>
   <mt-tab-item id="搜索">
-    <img slot="icon" src="">
+    <img slot="icon" src="./../assets/faxian.png">
     搜索
   </mt-tab-item>
   <mt-tab-item id="订单">
-    <img slot="icon" src="">
+    <img slot="icon" src="./../assets/dingdan.png">
     订单
   </mt-tab-item>
   <mt-tab-item id="我的">
-    <img slot="icon" src="./../assets/logo.png">
+    <img slot="icon" src="./../assets/wode.png">
     我的
   </mt-tab-item>
 </mt-tabbar>
@@ -90,6 +112,11 @@ import dangao from './../assets/dangao.jpeg'
 import zhoudian from './../assets/zhoudian.jpeg'
 import bianli from './../assets/bianli.jpeg'
 import yuding from './../assets/yuding.jpeg'
+import mm from './../assets/mm.jpeg'
+import niunai from './../assets/niunai.jpeg'
+import laisi from './../assets/laisi.jpeg'
+import pisa from './../assets/pisa.jpeg'
+import hongbei from './../assets/hongbei.jpeg'
 
 export default {
   data () {
@@ -131,6 +158,48 @@ export default {
         "imgurl":yuding,
         "title":"预定早餐"
         }
+      ],
+      storeList:[
+      {
+      	foodimg:mm,
+      	storename:"麦当劳",
+      	saleAmount:423,
+      	deliveryMoney:20,
+      	distance:40,
+      	time:10
+      },
+      {
+      	foodimg:hongbei,
+      	storename:"爱丽烘焙",
+      	saleAmount:450,
+      	deliveryMoney:30,
+      	distance:30,
+      	time:10
+      },
+      {
+      	foodimg:pisa,
+      	storename:"七星堡",
+      	saleAmount:423,
+      	deliveryMoney:20,
+      	distance:40,
+      	time:10
+      },
+      {
+      	foodimg:niunai,
+      	storename:"甜品世家",
+      	saleAmount:100,
+      	deliveryMoney:10,
+      	distance:60,
+      	time:30
+      },
+      {
+      	foodimg:laisi,
+      	storename:"莱丝西餐厅",
+      	saleAmount:500,
+      	deliveryMoney:50,
+      	distance:20,
+      	time:60
+      }
       ]
     }
    },
@@ -148,6 +217,11 @@ export default {
       this.$http.get(api.homeData).then(function(response){
         this.defaultResult=response.data.defaultResult;
       })
+    },
+    goback(){
+    	// this.$router.push("/home");
+    	alert("hello")
+    	this.$router.push({ path: '/' })
     }
    }
 
@@ -160,30 +234,28 @@ ul{
   padding: 0;
   list-style: none;
 }
-html{
-	font-size: 23.4375px
-}
 body{
 	margin: 0;
 	background-color: #F5F5F5;
 }
-header{
+.homeContainer header{
 	height: 50px;
 	background: #3190e8; 
 	width: 100%;
-	position: relative;
+	position: fixed;
+     z-index: 999;
 }
-header .mint-searchbar{
+.homeContainer header .mint-searchbar{
   background: #3190e8; 
   position: inherit;
- padding: 7px 10px;
+   padding: 7px 10px;
 }
-header .mint-searchbar-core,header .mint-searchbar-inner {
+.homeContainer header .mint-searchbar-core,header .mint-searchbar-inner {
   background:#1873b9; 
   height: 1.2rem;
     color: #fff;
 }
-header .mint-search {
+.homeContainer header .mint-search {
     height: auto; 
     float: left;
     width: 70%;
@@ -211,7 +283,6 @@ header .mint-searchbar .mint-searchbar-cancel{
 }
 .foodType{
 	width: 100%;
-	float: left;
 	position: relative;
 	background-color: #fff;
 }
@@ -249,7 +320,7 @@ figure{
   clear: both;
 }
 .head{
-  float: left;
+  text-align: left;
 }
 .storelist{
   clear: both;
@@ -266,10 +337,12 @@ figure{
 .showEvery img{
   height:2.7rem; 
   width:2.7rem;
+
 }
 .shop_li{
     border-bottom: 0.025rem solid #f1f1f1;
     padding: 0.7rem 0.4rem;
+    overflow: hidden;
   }
   .img{
     float: left;
@@ -280,9 +353,22 @@ figure{
     padding-top: .01rem;
     font-size: 0.65rem;
     font-weight: 700;
+    position: relative;
+    top:-1rem;
+    display: inline-block;
+    text-align: left;
   }
+ .htitle::before{
+    content: '品牌';
+    display: inline-block;
+    font-size: 0.5rem;
+    line-height: .6rem;
+    color: #333;
+    background-color: #ffd930;
+ }
   .shop_detail_ul{
     float: right;
+    padding-left: 1.3rem;
   }
   .supports{
     font-size: 0.5rem;
@@ -293,4 +379,90 @@ figure{
     margin-left: 0.05rem;
     float: left;
 }
+.storeContent{
+    position: relative;
+    float: left;
+    left: 0.6rem;
+}
+.storeContent .el-rate{
+	float: left;
+}
+.storeContent .el-rate__icon {
+    font-size: 0.1rem;
+    margin-right: 0.05rem;
+}
+.delivery_left{
+    color: #fff;
+    background-color: #3190e8;
+    border: 0.025rem solid #3190e8;
+}
+.delivery_right{
+    color: #3190e8;
+    border: 0.025rem solid #3190e8;
+}
+.sale{
+	transform: scale(0.8);
+    font-size: 0.6rem;
+    color: #666;
+    float: left;
+    margin-top: 0.1rem;
+}
+.delivery{
+	font-size: 0.4rem;
+	font-weight: normal;
+	 padding-top: 0.1rem;
+	 float: right;
+}
+.fee_distance {
+    font-size: 0.5rem;
+    color: #333;
+     clear: both;
+    overflow: hidden;
+}
+.distance_time{
+    overflow: hidden;
+     padding-left: 3rem;
+ }
+.fee{
+	float: left;
+    margin: 0.2rem 0;
+}
+.middle{
+	overflow: hidden;
+    margin-top: -2rem;
+    clear: both;
+}
+.segmentation{
+	padding: 0 0.1rem;
+}
+/**********searchContainer*************/
+.searchContainer header{
+	height: 50px;
+	background: #3190e8; 
+}
+.searchContainer .mint-searchbar {
+    width: 80%;
+    margin-left: 5%;
+    height: 50px;
+}
+.searchContainer .mint-searchbar {
+	background: #3190e8; 
+}
+.searchContainer .mint-searchbar-core,.searchContainer .mint-searchbar-inner  {
+	background: #efefef;
+}
+.searchContainer .mint-searchbar-cancel {
+     color: #fff; 
+}
+.mint-search-list {
+	    padding-top: 60px;
+    }
+.searchContainer span .fa-chevron-left{
+	display: inline-block;
+	float: left;
+	margin-top: 4%;
+    margin-left: 2%;
+    color: #fff;
+}
+
 </style>

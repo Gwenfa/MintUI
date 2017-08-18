@@ -7,6 +7,7 @@ import ElementUI from 'element-ui'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import 'element-ui/lib/theme-default/index.css'
+import './config/rem'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.use(MintUI)

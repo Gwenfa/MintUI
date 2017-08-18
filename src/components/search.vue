@@ -1,7 +1,9 @@
 <template>
 <div class="searchContainer">
-<span @click="goback"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+<header>
+<span @click="goback"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 <mt-search autofocus  v-model="value" :result="filterResult" ></mt-search> 
+</header>
 </div>
 </template>
 
@@ -37,21 +39,36 @@ export default {
   }
 </script>
 <style>
+body{
+	padding: 0;
+	margin: 0;
+}
+header{
+	height: 50px;
+	background: #3190e8; 
+}
 .searchContainer .mint-searchbar {
     width: 80%;
     margin-left: 5%;
+    height: 50px;
 }
 .searchContainer .mint-searchbar {
-	background: #fff;
+	background: #3190e8; 
 }
 .searchContainer .mint-searchbar-core,.searchContainer .mint-searchbar-inner  {
 	background: #efefef;
 }
-.searchContainer span{
+.searchContainer .mint-searchbar-cancel {
+     color: #fff; 
+}
+.mint-search-list {
+	    padding-top: 60px;
+    }
+.searchContainer span .fa-chevron-left{
 	display: inline-block;
 	float: left;
 	margin-top: 4%;
     margin-left: 2%;
-    color: #1892ea;
+    color: #fff;
 }
 </style>
