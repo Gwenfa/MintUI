@@ -220,8 +220,7 @@ export default {
     },
     goback(){
     	// this.$router.push("/home");
-    	alert("hello")
-    	this.$router.push({ path: '/' })
+    	this.selected="外卖";
     }
    }
 
