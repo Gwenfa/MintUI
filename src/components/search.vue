@@ -33,6 +33,7 @@ export default {
     },
     goback(){
     	this.$router.go(-1);
+    	this.selected="外卖";
     }
    }
 
@@ -57,6 +58,9 @@ header{
 }
 .searchContainer .mint-searchbar-core,.searchContainer .mint-searchbar-inner  {
 	background: #efefef;
+}
+.searchContainer .mint-searchbar-inner .mintui-search {
+    color: #000;
 }
 .searchContainer .mint-searchbar-cancel {
      color: #fff; 
