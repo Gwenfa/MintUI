@@ -1,0 +1,19 @@
+iphone6: 375px * 2 / 10 = 75px （1rem = 20px）
+
+假设我们设计稿给的是 750*1334。内部有个图片是200px*200px，那如何换算成rem呢？
+
+这个图片在css如何把单位写成rem呢？
+img.logo{
+	width: 5rem; -->rem
+	height: 5rem;
+}
+
+rem最后单位为：设计稿测量出来的尺寸/2/换算单位（1rem=20px,那表示换算单位为20）
+
+margin-top: 40px(测量出来的尺寸)
+
+margin-top: 2rem(40/2/10) 
+
+两套移动端适配方案：
+1.http://div.io/topic/1092
+2.饿了么

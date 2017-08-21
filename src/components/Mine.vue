@@ -73,9 +73,7 @@ body{
     background-color: #3190e8;
     height: 1.95rem;
 }
-.mineContainer .mint-searchbar-inner .mintui-search {
-    color: #000;
-}
+
 .mineContainer .mint-header-title {
     font-size: 0.8rem;
     font-weight: bold;
