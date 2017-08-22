@@ -1,5 +1,5 @@
 <template>
-<div class="homeContainer">
+<div class="orderContainer">
 		<header>
 			 <router-link to="/search"><mt-search autofocus  v-model="value" :result="filterResult" ></mt-search></router-link>
              <span class="span1"><i class="fa fa-microphone" ></i></span>
@@ -170,7 +170,7 @@ export default {
   },
    methods:{
     getaData(){
-      this.$http.get(api.homeData).then(function(response){
+      this.$http.get(api.WaimaiData).then(function(response){
         this.defaultResult=response.data.defaultResult;
       })
     },
@@ -193,24 +193,24 @@ body{
 	margin: 0;
 	background-color: #F5F5F5;
 }
-.homeContainer header{
+.orderContainer header{
 	height: 50px;
 	background: #3190e8; 
 	width: 100%;
 	position: fixed;
      z-index: 999;
 }
-.homeContainer header .mint-searchbar{
+.orderContainer header .mint-searchbar{
   background: #3190e8; 
   position: inherit;
    padding: 7px 10px;
 }
-.homeContainer header .mint-searchbar-core,header .mint-searchbar-inner {
+.orderContainer header .mint-searchbar-core,header .mint-searchbar-inner {
   background:#1873b9; 
  /* height: 1.2rem;*/
     color: #fff;
 }
-.homeContainer header .mint-search {
+.orderContainer header .mint-search {
     height: auto; 
     float: left;
     width: 70%;
@@ -233,7 +233,7 @@ body{
 header .mint-searchbar .mint-searchbar-cancel{
   display: none;
 }
-.homeContainer ::-webkit-input-placeholder,header .mint-searchbar-inner .mintui-search{
+.orderContainer ::-webkit-input-placeholder,header .mint-searchbar-inner .mintui-search{
 	color: #fff;
 }
 .foodType{

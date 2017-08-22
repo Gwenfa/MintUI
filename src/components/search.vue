@@ -2,6 +2,7 @@
 <div class="searchContainer">
 <header>
 <span @click="goback"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+<div style="height:60px;background:#3190e8;"></div>
 <mt-search autofocus  v-model="value" :result="filterResult" ></mt-search> 
 </header>
 </div>
@@ -13,7 +14,8 @@ export default {
   data () {
     return {
        value:"",
-       defaultResult:[]
+       defaultResult:[],
+       selected:""
     }
    },
    mounted(){
@@ -27,7 +29,7 @@ export default {
   },
    methods:{
     getaData(){
-      this.$http.get(api.homeData).then(function(response){
+      this.$http.get(api.WaimaiData).then(function(response){
         this.defaultResult=response.data.defaultResult;
       })
     },
@@ -45,16 +47,18 @@ body{
 	margin: 0;
 }
 header{
-	height: 50px;
-	background: #3190e8; 
+	/*height: 50px;
+	background: #3190e8;*/ 
+  position: fixed;
+  width: 100%;
 }
 .searchContainer .mint-searchbar {
     width: 80%;
-    margin-left: 5%;
+    margin-left: 9%;
     height: 50px;
-}
-.searchContainer .mint-searchbar {
-	background: #3190e8; 
+    background: #3190e8;
+    position: fixed;
+    margin-top:-55px;
 }
 .searchContainer .mint-searchbar-core,.searchContainer .mint-searchbar-inner  {
 	background: #efefef;
@@ -65,13 +69,13 @@ header{
 .searchContainer .mint-searchbar-cancel {
      color: #fff; 
 }
-.mint-search-list {
-	    padding-top: 60px;
+.searchContainer .mint-search-list {
+	    padding-top: 60px !important;
     }
 .searchContainer span .fa-chevron-left{
 	display: inline-block;
 	float: left;
-	margin-top: 4%;
+	margin-top: 5%;
     margin-left: 2%;
     color: #fff;
 }

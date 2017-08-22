@@ -10,5 +10,5 @@ let url = {
 
 //----------------请注意：如果正式环境，不需要本地json数据模拟，请删除以上代码和api中的模拟接口。----------------
 export const api = {
-            'homeData':url.staticPath+'dataJson/homeData.json', 
+            'WaimaiData':url.staticPath+'dataJson/waimai.json', 
     }
