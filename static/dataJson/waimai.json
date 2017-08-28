@@ -16,6 +16,48 @@
         "Pear",  
         "Peanut",  
         "Other"  
+      ],
+      "storeList":[
+      {
+        "foodimg":"//fuss10.elemecdn.com/6/fe/01a203b2a931392849bf16e380f7fjpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85",
+        "storename":"麦当劳",
+        "saleAmount":423,
+        "deliveryMoney":20,
+        "distance":40,
+        "time":10
+      },
+      {
+        "foodimg":"//fuss10.elemecdn.com/0/07/863cbf534de2b93197c1c66498ecejpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85",
+        "storename":"爱丽烘焙",
+        "saleAmount":450,
+        "deliveryMoney":30,
+        "distance":30,
+        "time":10
+      },
+      {
+        "foodimg":"//fuss10.elemecdn.com/3/ab/bf956fba85a4a92ce1ebf9ab48019jpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85",
+        "storename":"七星堡",
+        "saleAmount":423,
+        "deliveryMoney":20,
+        "distance":40,
+        "time":10
+      },
+      {
+        "foodimg":"//fuss10.elemecdn.com/0/13/d096bd5e231f90a20a01d1abd8723jpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85",
+        "storename":"甜品世家",
+        "saleAmount":100,
+        "deliveryMoney":10,
+        "distance":60,
+        "time":30
+      },
+      {
+        "foodimg":"//fuss10.elemecdn.com/a/1e/1e4bf6fe63ad11f131579238999f8jpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85",
+        "storename":"莱丝西餐厅",
+        "saleAmount":500,
+        "deliveryMoney":50,
+        "distance":20,
+        "time":60
+      }
       ]
 
 }

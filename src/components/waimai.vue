@@ -70,17 +70,18 @@ import dangao from './../assets/dangao.jpeg'
 import zhoudian from './../assets/zhoudian.jpeg'
 import bianli from './../assets/bianli.jpeg'
 import yuding from './../assets/yuding.jpeg'
-import mm from './../assets/mm.jpeg'
-import niunai from './../assets/niunai.jpeg'
-import laisi from './../assets/laisi.jpeg'
-import pisa from './../assets/pisa.jpeg'
-import hongbei from './../assets/hongbei.jpeg'
+// import mm from './../assets/mm.jpeg'
+// import niunai from './../assets/niunai.jpeg'
+// import laisi from './../assets/laisi.jpeg'
+// import pisa from './../assets/pisa.jpeg'
+// import hongbei from './../assets/hongbei.jpeg'
 export default {
   data () {
     return {
        value:"",
        defaultResult:[],
        value5:3.7,
+       storeList:null,
        "imgList":[
          {
         "imgurl":tianpin,
@@ -114,49 +115,8 @@ export default {
         "imgurl":yuding,
         "title":"预定早餐"
         }
-      ],
-      storeList:[
-      {
-      	foodimg:mm,
-      	storename:"麦当劳",
-      	saleAmount:423,
-      	deliveryMoney:20,
-      	distance:40,
-      	time:10
-      },
-      {
-      	foodimg:hongbei,
-      	storename:"爱丽烘焙",
-      	saleAmount:450,
-      	deliveryMoney:30,
-      	distance:30,
-      	time:10
-      },
-      {
-      	foodimg:pisa,
-      	storename:"七星堡",
-      	saleAmount:423,
-      	deliveryMoney:20,
-      	distance:40,
-      	time:10
-      },
-      {
-      	foodimg:niunai,
-      	storename:"甜品世家",
-      	saleAmount:100,
-      	deliveryMoney:10,
-      	distance:60,
-      	time:30
-      },
-      {
-      	foodimg:laisi,
-      	storename:"莱丝西餐厅",
-      	saleAmount:500,
-      	deliveryMoney:50,
-      	distance:20,
-      	time:60
-      }
       ]
+      
     }
    },
    mounted(){
@@ -172,6 +132,9 @@ export default {
     getaData(){
       this.$http.get(api.WaimaiData).then(function(response){
         this.defaultResult=response.data.defaultResult;
+        this.storeList=response.data.storeList;
+        console.log("storeList",this.storeList)
+        console.log("storeresponse",response)
       })
     },
     goback(){
