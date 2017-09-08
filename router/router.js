@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 // 插入数据
-router.post('/api/addStudents',function(req,res){
+router.post('/addStudents',function(req,res){
     //前端的post一共有两种传参方式，
     //一种是body传参，后端通过req.body去拿参数
     //另一种是options传参，后端通过req.query去拿参数

@@ -16,11 +16,11 @@ app.all('*', function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Credentials', true);
 
-  if ('OPTIONS' == req.method) {
-      res.send(200);
-  } else {
+  // if ('OPTIONS' == req.method) {
+  //     res.send(200);
+  // } else {
       next();
-  }
+
 });
 
 app.use('/api', birds);

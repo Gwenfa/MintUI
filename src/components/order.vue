@@ -114,8 +114,36 @@
                 var vm = this;
                 var data = this.$route.query;
                 console.log('获取到url参数：',data);
+                console.log('获取vm.ruleForm：',vm.ruleForm);
                 //根据url中的参数，进行ajax获取表单数据
-                global.post('http://127.0.0.1:3000/api/addStudents',null,{params:vm.ruleForm} ,function(res){
+                // global.post('http://127.0.0.1:3000/api/addStudents',null,{params:vm.ruleForm} ,function(res){
+                //       console.log('-------根据id获取表单信息：',JSON.stringify(res) )
+                //       if(res.body.resultCode == 0){
+                //            var res = res.body.data;
+                //                 console.log('=====',res);
+
+                //                 vm.ruleForm = res
+                                
+                //       }else{
+                //             //alert(res.body.resultMsg)
+                //             Message({
+                //                 showClose: true,
+                //                 message: res.body.resultMsg,
+                //                 type: 'error'
+                //             });
+                //       }
+
+                      
+                // },function(res){
+                //     //失败回调
+                // },false)
+            },
+          submitForm(formName) {
+            var vm = this;
+            this.$refs[formName].validate((valid) => {
+              if (valid) {
+                    alert('已提交，提交参数请看控制台');
+                    global.post('http://127.0.0.1:3000/api/addStudents',null,{params:vm.ruleForm} ,function(res){
                       console.log('-------根据id获取表单信息：',JSON.stringify(res) )
                       if(res.body.resultCode == 0){
                            var res = res.body.data;
@@ -136,12 +164,7 @@
                 },function(res){
                     //失败回调
                 },false)
-            },
-          submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
-              if (valid) {
-                    alert('已提交，提交参数请看控制台');
-                    console.log('提交入参：',this.ruleForm);
+                    console.log('提交入参：',vm.ruleForm);
 
                     //正式编程以下代码请放到接口成功回调函数中
                     Message({
