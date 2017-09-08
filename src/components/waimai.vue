@@ -70,11 +70,7 @@ import dangao from './../assets/dangao.jpeg'
 import zhoudian from './../assets/zhoudian.jpeg'
 import bianli from './../assets/bianli.jpeg'
 import yuding from './../assets/yuding.jpeg'
-// import mm from './../assets/mm.jpeg'
-// import niunai from './../assets/niunai.jpeg'
-// import laisi from './../assets/laisi.jpeg'
-// import pisa from './../assets/pisa.jpeg'
-// import hongbei from './../assets/hongbei.jpeg'
+
 export default {
   data () {
     return {
